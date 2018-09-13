@@ -8,27 +8,26 @@ class Car {
 
   turn(direction) {
     this.direction = direction
-    var img = document.querySelector('.car-img')
     switch (this.direction) {
       case 'north':
-        this.$img = img.classList.add('rotateNorth')
-        this.$img = img.classList.remove('rotateEast', 'rotateSouth', 'rotateWest')
+        this.$img.classList.add('rotateNorth')
+        this.$img.classList.remove('rotateEast', 'rotateSouth', 'rotateWest')
         break
       case 'east':
-        this.$img = img.classList.add('rotateEast')
-        this.$img = img.classList.remove('rotateNorth', 'rotateSouth', 'rotateWest')
+        this.$img.classList.add('rotateEast')
+        this.$img.classList.remove('rotateNorth', 'rotateSouth', 'rotateWest')
         break
       case 'south':
-        this.$img = img.classList.add('rotateSouth')
-        this.$img = img.classList.remove('rotateEast', 'rotateNorth', 'rotateWest')
+        this.$img.classList.add('rotateSouth')
+        this.$img.classList.remove('rotateEast', 'rotateNorth', 'rotateWest')
         break
       case 'west':
-        this.$img = img.classList.add('rotateWest')
-        this.$img = img.classList.remove('rotateEast', 'rotateSouth', 'rotateNorth')
-        break
+        this.$img.classList.add('rotateWest')
+        this.$img.classList.remove('rotateEast', 'rotateSouth', 'rotateNorth')
     }
   }
 }
+
 
 var pinkCar = document.createElement('img')
 pinkCar.classList.add('car-img')
