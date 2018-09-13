@@ -26,8 +26,23 @@ class Car {
         this.$img.classList.remove('rotateEast', 'rotateSouth', 'rotateNorth')
     }
   }
-}
 
+  move() {
+    switch (this.direction) {
+      case 'north':
+        this.location[1] -= this.speed
+        break
+      case 'south':
+        this.location[1] += this.speed
+        break
+      case 'east':
+        this.location[0] += this.speed
+        break
+      case 'west':
+        this.location[0] -= this.speed
+    }
+  }
+}
 
 var pinkCar = document.createElement('img')
 pinkCar.classList.add('car-img')
