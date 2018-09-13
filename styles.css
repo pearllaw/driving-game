@@ -1,0 +1,21 @@
+img {
+  position: fixed;
+  top: 50%;
+  right: 50%
+}
+
+.rotateNorth {
+  transform: rotate(0deg);
+}
+
+.rotateEast {
+  transform: rotate(90deg);
+}
+
+.rotateSouth {
+  transform: rotate(180deg);
+}
+
+.rotateWest {
+  transform: rotate(-90deg);
+}
