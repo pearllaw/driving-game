@@ -1,3 +1,8 @@
+img {
+  position: fixed;
+  top: 50%;
+  right: 50%
+}
 .rotated {
-  transform: rotate(90deg)
+  transform: rotate(45deg)
 }
