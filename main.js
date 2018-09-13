@@ -46,6 +46,10 @@ class Car {
         this.$img.setAttribute('left', '-50px')
     }
   }
+
+  start() {
+    var intervalID = window.setInterval(move(), 16)
+  }
 }
 
 var pinkCar = document.createElement('img')
