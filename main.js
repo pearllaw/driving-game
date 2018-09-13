@@ -30,16 +30,20 @@ class Car {
   move() {
     switch (this.direction) {
       case 'north':
-        this.location[1] -= this.speed
+        this.location[1] += this.speed
+        this.$img.setAttribute('top', '50px')
         break
       case 'south':
-        this.location[1] += this.speed
+        this.location[1] -= this.speed
+        this.$img.setAttribute('top', '-50px')
         break
       case 'east':
         this.location[0] += this.speed
+        this.$img.setAttribute('left', '50px')
         break
       case 'west':
         this.location[0] -= this.speed
+        this.$img.setAttribute('left', '-50px')
     }
   }
 }
@@ -47,7 +51,7 @@ class Car {
 var pinkCar = document.createElement('img')
 pinkCar.classList.add('car-img')
 pinkCar.setAttribute('src', 'race-car.png')
-pinkCar.setAttribute('style', 'height: 15rem')
+pinkCar.setAttribute('style', 'position: fixed; top: 100px; left: 100px; height: 10rem')
 document.body.appendChild(pinkCar)
 
 var myCar = new Car(pinkCar, 5, 'north', '[0, 0]')

@@ -1,9 +1,3 @@
-img {
-  position: fixed;
-  top: 50%;
-  right: 50%
-}
-
 .rotateNorth {
   transform: rotate(0deg);
 }
