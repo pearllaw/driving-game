@@ -30,35 +30,35 @@ class Car {
   move() {
     switch (this.direction) {
       case 'north':
-        this.location[1] += this.speed
-        this.$img.setAttribute('top', '50px')
+        this.location[1] -= this.speed
         break
       case 'south':
-        this.location[1] -= this.speed
-        this.$img.setAttribute('top', '-50px')
+        this.location[1] += this.speed
         break
       case 'east':
         this.location[0] += this.speed
-        this.$img.setAttribute('left', '50px')
         break
-      case 'west':
+      default:
         this.location[0] -= this.speed
-        this.$img.setAttribute('left', '-50px')
     }
+    this.$img.style.top = this.location[1] + 'px'
+    this.$img.style.left = this.location[0] + 'px'
   }
 
   start() {
-    var intervalID = window.setInterval(move(), 16)
+    this.interval = window.setInterval(function () {
+      this.move()
+    }.bind(this), 16);
   }
 }
 
 var pinkCar = document.createElement('img')
 pinkCar.classList.add('car-img')
 pinkCar.setAttribute('src', 'race-car.png')
-pinkCar.setAttribute('style', 'position: fixed; top: 100px; left: 100px; height: 10rem')
+pinkCar.setAttribute('style', 'position: absolute; top: 100px; left: 100px; height: 10rem')
 document.body.appendChild(pinkCar)
 
-var myCar = new Car(pinkCar, 5, 'north', '[0, 0]')
+var myCar = new Car(pinkCar, 5, 'north', [0, 0])
 
 document.addEventListener('keydown', function(event) {
   switch (event.key) {
@@ -74,5 +74,11 @@ document.addEventListener('keydown', function(event) {
     case 'ArrowLeft':
       myCar.turn('west')
       break
+  }
+})
+
+document.addEventListener('keydown', function(event) {
+  if (event.keyCode === 32) {
+    myCar.start()
   }
 })
