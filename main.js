@@ -50,6 +50,10 @@ class Car {
       this.move()
     }.bind(this), 16);
   }
+
+  stop() {
+    window.clearInterval(this.interval)
+  }
 }
 
 var pinkCar = document.createElement('img')
