@@ -54,15 +54,27 @@ class Car {
   stop() {
     window.clearInterval(this.interval)
   }
+
+  window() {
+    this.location[1] <= window.innerHeight + 'px'
+    this.location[0] <= window.innerWidth + 'px'
+  }
 }
 
 var pinkCar = document.createElement('img')
-pinkCar.classList.add('car-img')
+pinkCar.classList.add('pink-car')
 pinkCar.setAttribute('src', 'race-car.png')
-pinkCar.setAttribute('style', 'position: absolute; top: 100px; left: 100px; height: 10rem')
+pinkCar.setAttribute('style', 'position: relative; top: 550px; left: 1150px; height: 6rem')
 document.body.appendChild(pinkCar)
 
-var myCar = new Car(pinkCar, 5, 'north', [0, 0])
+var mercedes = document.createElement('img')
+mercedes.classList.add('silver-car')
+mercedes.setAttribute('src', 'mercedes-car.png')
+mercedes.setAttribute('style', 'position: relative; top: 85px; left: 100px; height: 4rem')
+document.body.appendChild(mercedes)
+
+var myCar = new Car(pinkCar, 2, 'north', [1150, 550])
+var car2 = new Car(mercedes, 4, 'west', [100, 100])
 
 document.addEventListener('keydown', function(event) {
   switch (event.key) {
