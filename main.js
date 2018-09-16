@@ -50,6 +50,10 @@ class Car {
       this.move()
     }.bind(this), 16);
   }
+
+  stop() {
+    window.clearInterval(this.interval)
+  }
 }
 
 var pinkCar = document.createElement('img')
@@ -77,8 +81,17 @@ document.addEventListener('keydown', function(event) {
   }
 })
 
+var carStarted = null
 document.addEventListener('keydown', function(event) {
-  if (event.keyCode === 32) {
-    myCar.start()
-  }
+  switch (event.keyCode) {
+    case 32:
+      if (carStarted === null) {
+        myCar.start()
+        carStarted = true
+      }
+      else {
+        myCar.stop()
+        carStarted = null
+      }
+    }
 })
